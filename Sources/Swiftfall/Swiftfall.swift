@@ -586,7 +586,7 @@ public class Swiftfall {
                 } else {
 					if let decoded:ScryfallError = try? decoder.decode(ScryfallError.self, from: content) {
 						throw decoded
-					} else {
+					} else if let error = error {
 						completion(.failure(error))
 					}
                 }

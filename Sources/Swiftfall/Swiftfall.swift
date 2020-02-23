@@ -286,7 +286,7 @@ public class Swiftfall {
         }
     }
     
-    public struct Card: Codable, CustomStringConvertible {
+    public struct Card: Codable, CustomStringConvertible, Equatable, Hashable {
         
         // Some cards have cards closely related to them. They will contain an array of RelatedCards.
         public struct RelatedCard: Codable, CustomStringConvertible {
@@ -305,7 +305,7 @@ public class Swiftfall {
             }
         }
         
-        public struct Face: Codable, CustomStringConvertible {
+        public struct Face: Codable, CustomStringConvertible, Equatable, Hashable {
             
             // All of these variables are the same as a normal card.
             
@@ -355,7 +355,7 @@ public class Swiftfall {
             }
         }
         
-        public struct Prices: Codable, CustomStringConvertible {
+        public struct Prices: Codable, CustomStringConvertible, Equatable, Hashable {
             
             public let usd: String?
             

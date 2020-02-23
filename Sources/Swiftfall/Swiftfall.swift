@@ -289,7 +289,7 @@ public class Swiftfall {
     public struct Card: Codable, CustomStringConvertible, Equatable, Hashable {
         
         // Some cards have cards closely related to them. They will contain an array of RelatedCards.
-        public struct RelatedCard: Codable, CustomStringConvertible {
+        public struct RelatedCard: Codable, CustomStringConvertible, Equatable, Hashable {
             
             // An unique ID for this card in Scryfall’s database.
             let id: String

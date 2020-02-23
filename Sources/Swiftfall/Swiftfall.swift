@@ -109,9 +109,10 @@ public class Swiftfall {
     struct ScryfallError: Codable, Error, CustomStringConvertible {
         
         let code: String
-        let type: String
+        let type: String?
         let status: Int
         let details: String
+		let warnings: [String]?
         
         public var description: String {
             return "Error: \(code)\nDetails: \(details)\n"
@@ -480,12 +481,23 @@ public class Swiftfall {
         
         // This card's artist
         public let artist: String?
+		
+		// This card’s collector number. Note that collector numbers can contain non-numeric characters, such as letters or ★.
+		public let collectorNumber: String
         
         // True if this is a digital card on Magic Online.
         public let digital: Bool
         
         // True if this card’s imagery is high resolution.
         public let highresImage: Bool
+		
+		// This card’s frame layout.
+		// https://scryfall.com/docs/api/layouts
+		public let frame: String
+		
+		// This card’s frame effects, if any.
+		// https://scryfall.com/docs/api/layouts
+		public let frameEffects: [String]?
         
         // True if this card’s artwork is larger than normal.
         public let fullArt: Bool

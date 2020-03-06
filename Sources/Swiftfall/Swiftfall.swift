@@ -292,13 +292,13 @@ public class Swiftfall {
         public struct RelatedCard: Codable, CustomStringConvertible, Equatable, Hashable {
             
             // An unique ID for this card in Scryfall’s database.
-            let id: String
+            public let id: String
             
             // The name of this particular related card.
-            let name: String
+            public let name: String
             
             // A URI where you can retrieve a full object describing this card on Scryfall’s API.
-            let uri: String
+            public let uri: String
             
             public var description: String {
                 return "Name: \(name)\nURI: \(uri)"

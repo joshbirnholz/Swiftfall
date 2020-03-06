@@ -596,6 +596,23 @@ public class Swiftfall {
         }
         task.resume()
     }
+	
+	// gets a Card by using the Scryfall ID
+    public static func getCard(id: String) throws -> Card {
+        let call = "\(scryfall)cards/\(id)"
+        var card: Result<Card>?
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        parseResource(call: call){
+            (newcard: Result<Card>) in
+            card = newcard
+            semaphore.signal()
+        }
+        
+        semaphore.wait()
+        
+        return try card!.promote()
+    }
     
     // gets a Card by using the code and id number
     public static func getCard(code: String, number: Int) throws -> Card {
